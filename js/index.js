@@ -766,3 +766,180 @@ for(val in buttle) {
   console.log(val)
   console.log(buttle[val])
 }
+
+// ? higher array method
+
+let pins = [1111,444,7777,8888,1234];
+
+/* 
+  arrayName.higherArrayMethodType(item=>{
+     code block;
+     return value;
+    });
+
+    function myfunction (item) {
+     code block;
+     return value;
+    }
+     
+  arrayName.higherArrayMethodType(myfunction);
+
+  arrayName.higherArrayMethodType(item=> condition);
+
+
+*/
+
+console.log('***************************************')
+// forEeach
+ pins.forEach(item=> {
+  let result = item *2;
+  console.log(item)
+});
+
+// map
+let pinByTwo = pins.map(item=> {
+  return item * 2;
+  // if(item % 2 === 0) {
+  //   // even
+  //   return item;
+  // }
+});
+
+console.log(pinByTwo);
+
+// filter
+
+let evenPins = pins.filter(item=> {
+  // console.log(item)
+  if(item % 2 == 0) {
+    // even
+    return item;
+  }
+})
+
+console.log(evenPins)
+
+function ab (a,b) {
+  console.log(a+b)
+  return a+b;
+}
+
+ab(3,4)
+ab(13,4)
+
+let cal = ab(4,5) + 2;
+console.log(cal);
+
+// sort 
+
+let states = ['Rivers','Abuja','Bayelsa','Kanu'];
+
+let sortedState = states.sort();
+
+console.log(sortedState);
+
+let digits = [1,12,8,3,15,4,2];
+
+let sortedDigits1 = digits.sort((x,y)=> x-y);
+
+//  -2 -1 0 1 2
+
+console.log(sortedDigits1)
+{
+  let sortedDigits = digits.sort((a,b)=> b-a);
+  console.log(sortedDigits)
+
+}
+
+// reduce
+
+let summedDigits = digits.reduce((a,b)=> a*=b);
+
+console.log(summedDigits);
+
+// write an algorithm to check if a number is even or odd
+
+/* 
+  1.understant the problem; even is any number devided by two without a rememder
+  2. logical steps or psuedocode algorithm
+    > get the number
+    > check if it is even or odd using a condition
+    > return check
+
+  3. convert to script language
+   > variable or prompt or function
+   > check usng modulus: nuber%2 === 0
+   > return even or odd
+*/
+
+function CheckEvenorOdd (a) {
+
+  if(isNaN(a)) {
+    // alphabet
+    // throw Error('Expected an number but got an alphabet:'+a);
+    alert( 'Expected an number but got an alphabet:'+a);
+  
+  }else{
+    // number
+    
+    if(a%2===0) {
+      return `${a} is an even number`
+    }else{
+      return `${a} is an odd number`
+    }
+  }
+}
+
+console.log(CheckEvenorOdd('2'));
+
+console.log(isNaN('r'))
+
+/* 
+  write a psueocode algorithm that finds all the even and odd number from 1 to the given number
+
+  1. understand the problem: even and odd
+  2.logical step
+   > get the number
+   > generate a set of number 1 to  to the given number
+   > check for even and odd numbers
+   > store the even and odd number seperately
+   > return the even and odd numbers stored
+  3. convert to js
+    > function
+    > loops: for,while
+    > if statement and modulus
+    > array
+    > return even or odd
+
+*/
+
+function getEvenOdd (a) {
+  if(!isNaN(a)) {
+    // generate
+    let even = []; let odd = [];
+    for(let i=1; i<= a; i++) {
+      if(i%2 === 0) {
+        // even
+        even.push(i);
+      }else{
+        // odd
+        odd.push(i)
+      }
+    }
+    // end of loop
+    return {even, odd}
+    // return [even, odd]
+  }else{
+    // not a number
+    alert(`Expected an number but got an alphabet: ${a}`)
+  }
+}
+
+// destructing
+// let {even,odd} = getEvenOdd(12);
+let {odd,even} = getEvenOdd(12);
+// let [odd,even] = getEvenOdd(12);
+
+console.log(even)
+console.log(odd)
+
